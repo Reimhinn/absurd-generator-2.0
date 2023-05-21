@@ -1,0 +1,33 @@
+h2 {
+    color: white;
+    font-weight: 100;
+}
+
+.article-container {
+    width: 14vw;
+    margin-left: 2.5vw;
+}
+
+.words-container {
+    height: 8.5vh;
+    background-color: var(--main-bg-color);
+    border-radius: 7px;
+    border: solid 2px var(--border-color);
+    margin: 1.5vh 0px;
+}
+
+input {
+    font-size: 1vw;
+    background-color: black;
+    width: 94.5%;
+    height: 2vh;
+    border-radius: 7px;
+    border: solid 2px var(--border-color);
+    color: white;
+    padding: 0.15vw;
+}
+
+input[type=text] {
+    font-size: 0.65vw;
+    padding-left: 0.5vw;
+}

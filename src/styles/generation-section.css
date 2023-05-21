@@ -1,0 +1,35 @@
+#generation-section {
+    width: 74.5vw;
+    background-image: radial-gradient(circle at 50% 20%,#49494E , #343539);
+}
+
+#wordGenBg {
+    width: 50vw;
+    padding-top: 10vh;
+}
+
+#wordGenBg img {
+    width: 100%;
+}
+
+#refresh-fav-container {
+    padding-right: 2vw;
+    padding-top: 3vh;
+}
+
+#refresh-fav-container img {
+    padding-left: 1.5vw;
+    width: 2.5vw;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.5s;
+}
+
+#refresh-fav-container img:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+#add-favorite-img {
+   transform: scale(0.9);
+}

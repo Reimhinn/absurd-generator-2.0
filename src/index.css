@@ -1,0 +1,10 @@
+:root {
+    --main-bg-color: #2e2e30;
+    --second-bg-color: #29282b;
+    --border-color: #363538;
+}
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
