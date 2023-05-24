@@ -1,21 +1,21 @@
-section {
-	width: 22vw;
+#words-section {
+	width: 18vw;
 	background-color: var(--second-bg-color);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-h1 {
+#main-title {
 	color: white;
 	text-align: center;
 	font-weight: 600;
-	font-size: 1.5vw;
+	font-size: 1.25vw;
 	margin: 0;
 	padding-top: 2.1vh;
 }
 
-h1 span {
+#main-title span {
 	display: inline-block;
 	transform: rotate(180deg);
 	line-height: 1em;
@@ -23,10 +23,6 @@ h1 span {
 
 #A-maj {
 	font-size: 130%;
-}
-
-h2 {
-	font-size: 1.2vw;
 }
 
 #all-articles-container {

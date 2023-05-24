@@ -6,5 +6,3 @@ export const store = configureStore({
         packs: packsSlice.reducer
     }
 })
-
-export const { addPack } = packsSlice.actions

@@ -4,8 +4,8 @@ import WordsArticle from './WordsArticle'
 
 function WordsSection() {
   return (
-    <section>
-      <h1><span id='A-maj'>A</span>BSURD GENERATO<span>R</span></h1>
+    <section id='words-section'>
+      <h1 id='main-title'><span id='A-maj'>A</span>BSURD GENERATO<span>R</span></h1>
       <div id='all-articles-container'>
         <article>
           <WordsArticle type='verbes' />

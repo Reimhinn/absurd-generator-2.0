@@ -1,10 +1,11 @@
-h2 {
+#word-type-title {
     color: white;
     font-weight: 100;
+    font-size: 1.2vw;
 }
 
 .article-container {
-    width: 14vw;
+    width: 12vw;
     margin-left: 2.5vw;
 }
 
@@ -14,11 +15,12 @@ h2 {
     border-radius: 7px;
     border: solid 2px var(--border-color);
     margin: 1.5vh 0px;
+    padding: 0.4vw;
 }
 
-input {
+.article-container input {
     font-size: 1vw;
-    background-color: black;
+    background-color: #151515;
     width: 94.5%;
     height: 2vh;
     border-radius: 7px;
@@ -27,7 +29,31 @@ input {
     padding: 0.15vw;
 }
 
-input[type=text] {
+.article-container input[type=text] {
     font-size: 0.65vw;
     padding-left: 0.5vw;
 }
+
+input::placeholder {
+    color: #3D3D40;
+}
+
+.words-container li {
+    color: white;
+    font-size: 0.65vw;
+    opacity: 0.6;
+    font-weight: 100;
+    display: flex;
+    justify-content: space-between;
+}
+
+.words-container li img {
+    width: 0.8vw;
+    opacity: 0;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.words-container li:hover img {
+    opacity: 1;
+  }

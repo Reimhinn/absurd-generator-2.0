@@ -2,7 +2,6 @@ import React from 'react'
 import '../styles/generation-section.css'
 import wordGenBg from '../assets/bg mot créé.png'
 import { useDispatch, useSelector } from 'react-redux'
-import { addPack } from '../redux/store'
 import refresh from '../assets/refresh.png'
 import favorite from '../assets/ajouter-aux-favoris.png'
 

@@ -16,14 +16,14 @@ function MainNavbar() {
 		<img id='home-logo' src={homeLogo} alt="" />
 
 		<nav>
-			<ol>
+			<ul>
 				<li><img src={add} alt="" /></li>
 				<li><img src={swap} alt="" /></li>
 				<li><img src={openBox} alt="" /></li>
 				<li><img src={share} alt="" /></li>
 				<li><img src={settings} alt="" /></li>
 				<li><img src={help} alt="" /></li>
-			</ol>
+			</ul>
 		</nav>
 	</div>
   )
