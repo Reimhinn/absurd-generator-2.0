@@ -1,6 +1,5 @@
 #main-navbar {
     width: 3.5vw;
-    height: 100vh;
     background-color: var(--main-bg-color);
     display: flex;
     flex-direction: column;
@@ -25,8 +24,4 @@
 
 #main-navbar li {
     padding-bottom: 2vh;
-}
-
-#main-navbar li img {
-   width: 1.5vw;
 }

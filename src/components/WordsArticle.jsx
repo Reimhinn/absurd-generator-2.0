@@ -1,7 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/words-article.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addVerb, addNoun, addThird } from "../redux/reducers/packs-reducer";
+import {
+    addVerb,
+    addNoun,
+    addThird,
+    filterActivePacks,
+    filterActiveVerbs,
+    filterActiveNouns,
+    filterActiveThirds,
+    deleteActiveVerb
+} from "../redux/reducers/packs-reducer";
 import minus from "../assets/minus.png";
 
 function WordsArticle({ type }) {
@@ -10,36 +19,73 @@ function WordsArticle({ type }) {
     const [inputValue, setInputValue] = useState("");
     const dispatch = useDispatch();
 
-    const packId = 1;
+    const packsSelector = useSelector((state) => state.packs);
 
-    const word = inputValue;
+    const activeVerbs = useSelector((state) => state.packs.activeVerbs);
+    const activeNouns = useSelector((state) => state.packs.activeNouns);
+    const activeThirds = useSelector((state) => state.packs.activeThirds);
 
-    const packs = useSelector((state) => state.packs);
+    useEffect(() => {
+        dispatch(filterActivePacks());
+    }, [packsSelector.packs]);
+
+    useEffect(() => {
+        dispatch(filterActiveVerbs());
+    }, []);
+
+    useEffect(() => {
+        dispatch(filterActiveNouns());
+    }, []);
+
+    useEffect(() => {
+        dispatch(filterActiveThirds());
+    }, []);
+
+    function uploadWordsFilter() {
+        dispatch(filterActiveVerbs())
+        dispatch(filterActiveNouns())
+        dispatch(filterActiveThirds())
+        console.log(activeVerbs)
+    }
 
     function addNewWord(event) {
         if (event.key === "Enter") {
             if (inputValue !== "") {
                 const action =
                     type === "verbes"
-                        ? addVerb({ packId, verb: inputValue })
+                        ? addVerb({ packId: 1, verb: inputValue })
                         : type === "noms"
-                        ? addNoun({ packId, noun: inputValue })
+                        ? addNoun({ packId: 1, noun: inputValue })
                         : type === "compléments"
-                        ? addThird({ packId, third: inputValue })
+                        ? addThird({ packId: 1, third: inputValue })
                         : null;
 
                 if (action) {
                     dispatch(action);
                     setInputValue("");
-                    console.log(packs);
+                    uploadWordsFilter()
+ 
                 }
             }
         }
     }
 
+    function deleteWord(e) {
+        const parentElement = e.target.parentNode
+        const verb = e.target.dataset.verb
+        console.log(verb)
+        dispatch(deleteActiveVerb(verb))
+        uploadWordsFilter()
+        
+        parentElement.remove()
+        
+    }
+
     function handleChange(event) {
         setInputValue(event.target.value);
     }
+
+
 
     return (
         <div className="article-container">
@@ -52,28 +98,36 @@ function WordsArticle({ type }) {
                 onChange={handleChange}
             />
             <div className="words-container" id={idContainer}>
-                <ul>
-                    {type === "verbes"
-                        ? packs[0].verbs.map((verb) => (
-                              <li key={verb}>
-                                  {verb}
-                                  <img src={minus} alt="Supprimer" />
-                              </li>
-                          ))
-                        : type === "noms"
-                        ? packs[0].nouns.map((noun) => (
-                              <li key={noun}>
-                                  {noun}
-                                  <img src={minus} alt="Supprimer" />
-                              </li>
-                          ))
-                        : packs[0].thirds.map((third) => (
-                              <li key={third}>
-                                  {third}
-                                  <img src={minus} alt="Supprimer" />
-                              </li>
-                          ))}
-                </ul>
+                {type === "verbes" && (
+                    <ul>
+                        {activeVerbs.map((activeVerb) => (
+                            <li key={activeVerb} >
+                                {activeVerb}
+                                <img src={minus} alt="Supprimer" onClick={deleteWord} data-verb={activeVerb} />
+                            </li>
+                        ))}
+                    </ul>
+                )}
+                {type === "noms" && (
+                    <ul>
+                        {activeNouns.map((activeNoun) => (
+                            <li key={activeNoun}>
+                                {activeNoun}
+                                <img src={minus} alt="Supprimer" />
+                            </li>
+                        ))}
+                    </ul>
+                )}
+                {type === "compléments" && (
+                    <ul>
+                        {activeThirds.map((activeThird) => (
+                            <li key={activeThird}>
+                                {activeThird}
+                                <img src={minus} alt="Supprimer" />
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </div>
         </div>
     );

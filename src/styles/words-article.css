@@ -13,9 +13,10 @@
     height: 8.5vh;
     background-color: var(--main-bg-color);
     border-radius: 7px;
-    border: solid 2px var(--border-color);
+    border: solid 1px var(--border-color);
     margin: 1.5vh 0px;
     padding: 0.4vw;
+    overflow: auto;
 }
 
 .article-container input {
@@ -24,7 +25,7 @@
     width: 94.5%;
     height: 2vh;
     border-radius: 7px;
-    border: solid 2px var(--border-color);
+    border: solid 1px var(--border-color);
     color: white;
     padding: 0.15vw;
 }
@@ -57,3 +58,15 @@ input::placeholder {
 .words-container li:hover img {
     opacity: 1;
   }
+
+.words-container li:has(img:hover) {
+    color: red;
+}
+
+.words-container::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+.words-container::-webkit-scrollbar-thumb {
+    background: #47464A ; 
+}

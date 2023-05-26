@@ -1,0 +1,11 @@
+.active-packs {
+    background-color: var(--main-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 7px;
+    color: white;
+    font-size: 1vw;
+    font-weight: 100;
+    padding: 0.5vh;
+    margin-right: 0.8vh;
+    margin-top: 0.8vh;
+}
